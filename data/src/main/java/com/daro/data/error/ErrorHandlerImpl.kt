@@ -1,13 +1,13 @@
 package com.daro.data.error
 
-import com.daro.domain.error.Error
+import com.daro.domain.entities.Error
 import com.daro.domain.error.ErrorHandler
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.HttpURLConnection
 
 class ErrorHandlerImpl : ErrorHandler {
-    override fun getError(throwable: Throwable) = when (throwable) {
+    override fun handleError(throwable: Throwable) = when (throwable) {
         is IOException -> Error.Network
         is HttpException -> {
             when (throwable.code()) {

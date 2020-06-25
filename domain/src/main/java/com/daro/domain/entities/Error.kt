@@ -1,4 +1,4 @@
-package com.daro.domain.error
+package com.daro.domain.entities
 
 sealed class Error {
     object Network : Error()

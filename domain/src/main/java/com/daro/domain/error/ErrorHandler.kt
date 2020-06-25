@@ -1,5 +1,7 @@
 package com.daro.domain.error
 
+import com.daro.domain.entities.Error
+
 interface ErrorHandler {
-    fun getError(throwable: Throwable): Error
+    fun handleError(throwable: Throwable): Error
 }

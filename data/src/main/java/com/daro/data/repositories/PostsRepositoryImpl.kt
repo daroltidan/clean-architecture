@@ -1,15 +1,13 @@
 package com.daro.data.repositories
 
-import com.daro.data.mappers.PostEntityToDomain
+import com.daro.data.mappers.PostEntityToDomainMapper
 import com.daro.data.repositories.source.PostsDataSourceFactory
 import com.daro.domain.entities.Post
-import com.daro.domain.error.ErrorHandler
 import com.daro.domain.repositories.Repository
 
-class PostsRepository(
+class PostsRepositoryImpl(
     private val factory: PostsDataSourceFactory,
-    private val errorHandler: ErrorHandler,
-    private val entityMapper: PostEntityToDomain
+    private val entityMapper: PostEntityToDomainMapper
 ) : Repository<Post> {
 
     override suspend fun get(forceUpdate: Boolean): List<Post> {
