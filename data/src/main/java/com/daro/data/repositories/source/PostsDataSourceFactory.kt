@@ -8,14 +8,16 @@ class PostsDataSourceFactory(
     private val remoteSource: PostsDataSource
 ) {
 
-    suspend fun getDataSource(forceUpdate: Boolean) = withContext(Dispatchers.IO) {
+    suspend fun getPostsDataSource(forceUpdate: Boolean) = withContext(Dispatchers.IO) {
         if (!forceUpdate) {
             val localData = localSource.getPosts()
-            if (localData.isEmpty()) {
+            if (localData.isNullOrEmpty()) {
                 return@withContext remoteSource
             }
             return@withContext localSource
         }
         return@withContext remoteSource
     }
+
+    fun getSinglePostDataSource() = localSource
 }

@@ -1,4 +1,4 @@
-package com.daro.cleanarchitecture.main.entities
+package com.daro.cleanarchitecture.posts.entities
 
 import com.daro.domain.entities.Post
 import com.daro.domain.mappers.Mapper

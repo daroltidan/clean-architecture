@@ -16,4 +16,11 @@ class RemotePostsDataSource(
         postsDao.saveAll(localPosts)
         return postsDao.getAll()
     }
+
+    override suspend fun getPost(id: Int): PostEntity {
+        val post = service.getPost(id)
+        val localPost = mapper.map(post)
+        postsDao.save(localPost)
+        return postsDao.getPost(id)
+    }
 }

@@ -11,7 +11,12 @@ class PostsRepositoryImpl(
 ) : Repository<Post> {
 
     override suspend fun get(forceUpdate: Boolean): List<Post> {
-        val dataSource = factory.getDataSource(forceUpdate)
+        val dataSource = factory.getPostsDataSource(forceUpdate)
         return dataSource.getPosts().map(entityMapper::map)
+    }
+
+    override suspend fun get(id: Int): Post {
+        val dataSource = factory.getSinglePostDataSource()
+        return entityMapper.map(dataSource.getPost(id))
     }
 }

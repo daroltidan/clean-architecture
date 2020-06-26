@@ -15,4 +15,9 @@ interface PostsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveAll(list: List<PostEntity>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun save(post: PostEntity)
+
+    @Query("SELECT * from PostEntity WHERE id =:postID")
+    suspend fun getPost(postID: Int): PostEntity
 }
