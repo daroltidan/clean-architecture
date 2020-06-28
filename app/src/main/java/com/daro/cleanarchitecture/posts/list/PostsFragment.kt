@@ -14,6 +14,8 @@ import com.daro.cleanarchitecture.databinding.FragmentPostsBinding
 import com.daro.cleanarchitecture.posts.adapter.OnItemClickListener
 import com.daro.cleanarchitecture.posts.adapter.PostsAdapter
 import com.daro.cleanarchitecture.posts.entities.PostViewModel
+import com.daro.cleanarchitecture.ui.setUpRefreshLayout
+import com.daro.cleanarchitecture.ui.setupSnackbar
 import com.daro.domain.entities.Error
 import com.daro.domain.entities.ResultState
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -49,9 +51,7 @@ class PostsFragment : Fragment(R.layout.fragment_posts),
     }
 
     private fun initUi() {
-        binding.postsRefreshLayout.apply {
-            setOnRefreshListener(this@PostsFragment)
-        }
+        binding.postsRefreshLayout.setUpRefreshLayout(this)
         binding.postsList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = postsAdapter
@@ -70,15 +70,12 @@ class PostsFragment : Fragment(R.layout.fragment_posts),
     }
 
     private fun handleErrorState(error: Error) {
+        binding.postsRefreshLayout.isRefreshing = false
         when (error) {
-            is Error.Network -> {
-            }
-            is Error.NotFound -> {
-            }
-            is Error.ServiceUnavailable -> {
-            }
-            is UnknownError -> {
-            }
+            is Error.Network -> binding.root.setupSnackbar(R.string.network_error)
+            is Error.NotFound -> binding.root.setupSnackbar(R.string.backend_not_found_error)
+            is Error.ServiceUnavailable -> binding.root.setupSnackbar(R.string.backend_connection_error)
+            is UnknownError -> binding.root.setupSnackbar(R.string.generic_error)
         }
     }
 

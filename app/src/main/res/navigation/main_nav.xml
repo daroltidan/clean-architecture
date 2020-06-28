@@ -25,6 +25,8 @@
         tools:layout="@layout/fragment_posts">
         <action
             android:id="@+id/actionPostsToDetails"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
 </navigation>
