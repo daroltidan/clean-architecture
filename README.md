@@ -7,3 +7,5 @@ using:
 * [live data](https://developer.android.com/topic/libraries/architecture/livedata)
 * [room](https://developer.android.com/training/data-storage/room)
 * [retrofit](https://square.github.io/retrofit/)
+* [navigtion component](https://developer.android.com/guide/navigation/navigation-getting-started)
+
