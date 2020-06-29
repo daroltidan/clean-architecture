@@ -6,6 +6,8 @@ I've used:
 * [retrofit](https://square.github.io/retrofit/)
 * [navigtion component](https://developer.android.com/guide/navigation/navigation-getting-started)
 * [koin](https://insert-koin.io/)
+* [data binding](https://developer.android.com/topic/libraries/data-binding)
+* [view binding](https://developer.android.com/topic/libraries/view-binding)
 
 # clean architecture # 
 ![alt text](https://github.com/daroltidan/clean-architecture/blob/master/1_dtL10Oo6gUKZU6GEt85Few.png)
