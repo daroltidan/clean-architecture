@@ -9,7 +9,7 @@ import com.daro.data.local.entities.PostEntity
 @Dao
 interface PostsDao {
 
-    @Query("SELECT * FROM PostEntity")
+    @Query("SELECT * FROM PostEntity ORDER BY title")
     suspend fun getAll(): List<PostEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

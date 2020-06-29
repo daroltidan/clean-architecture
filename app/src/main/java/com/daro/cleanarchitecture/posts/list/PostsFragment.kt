@@ -72,10 +72,10 @@ class PostsFragment : Fragment(R.layout.fragment_posts),
     private fun handleErrorState(error: Error) {
         binding.postsRefreshLayout.isRefreshing = false
         when (error) {
-            is Error.Network -> binding.root.setupSnackbar(R.string.network_error)
-            is Error.NotFound -> binding.root.setupSnackbar(R.string.backend_not_found_error)
-            is Error.ServiceUnavailable -> binding.root.setupSnackbar(R.string.backend_connection_error)
-            is UnknownError -> binding.root.setupSnackbar(R.string.generic_error)
+            is Error.Network -> binding.root.setupSnackbar(R.string.error_network_connection)
+            is Error.NotFound -> binding.root.setupSnackbar(R.string.error_backend_not_found)
+            is Error.ServiceUnavailable -> binding.root.setupSnackbar(R.string.error_backend_connection)
+            is UnknownError -> binding.root.setupSnackbar(R.string.error_generic)
         }
     }
 

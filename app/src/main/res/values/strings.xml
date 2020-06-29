@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">Clean Architecture</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="network_error">There was a problem connecting to the internet</string>
-    <string name="backend_not_found_error">There was an issue reaching the backend</string>
-    <string name="backend_connection_error">Error Connecting to the backend</string>
-    <string name="generic_error">Oops! something went wrong.</string>
+
+    <string name="error_backend_connection">Error Connecting to the backend</string>
+    <string name="error_backend_not_found">There was an issue reaching the backend</string>
+    <string name="error_generic">Oops! something went wrong.</string>
+    <string name="error_network_connection">There was a problem connecting to the internet</string>
 </resources>

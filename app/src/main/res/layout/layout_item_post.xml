@@ -18,36 +18,51 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
+        android:layout_margin="@dimen/margin_default"
         android:onClick="@{clickListener::onClick}"
-        app:cardCornerRadius="@dimen/default_margin"
-        app:contentPadding="@dimen/default_margin">
+        app:cardCornerRadius="@dimen/margin_default"
+        app:contentPadding="@dimen/margin_default">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{post.title}"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
+            <com.daro.cleanarchitecture.ui.UserIconView
+                android:id="@+id/icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:userId="@{post.userId}" />
 
-            <TextView
-                android:id="@+id/body"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{post.body}"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
+                android:layout_margin="@dimen/margin_large"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@{post.title}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+                <TextView
+                    android:id="@+id/body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="3"
+                    android:text="@{post.body}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
