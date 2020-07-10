@@ -56,6 +56,11 @@ class PostsFragment : Fragment(R.layout.fragment_posts),
             layoutManager = LinearLayoutManager(requireContext())
             adapter = postsAdapter
         }
+        binding.fab.setOnClickListener { showAddItem() }
+    }
+
+    private fun showAddItem() {
+        findNavController().navigate(PostsFragmentDirections.actionPostsToAdd())
     }
 
     private fun handleStates(state: ResultState<List<PostViewModel>>) {
@@ -84,7 +89,7 @@ class PostsFragment : Fragment(R.layout.fragment_posts),
     }
 
     override fun onItemClicked(post: PostViewModel) {
-        val directions = PostsFragmentDirections.actionPostsToDetails(post.id, post.title)
+        val directions = PostsFragmentDirections.actionPostsToDetails(post.id)
         findNavController().navigate(directions)
     }
 

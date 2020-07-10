@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+    <string name="add_body">Body</string>
+    <string name="add_save">Save Post</string>
+    <string name="add_title">Title</string>
+
     <string name="app_name">Clean Architecture</string>
 
     <string name="error_backend_connection">Error Connecting to the backend</string>

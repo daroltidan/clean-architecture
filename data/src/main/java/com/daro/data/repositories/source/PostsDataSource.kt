@@ -6,4 +6,6 @@ interface PostsDataSource {
     suspend fun getPosts(): List<PostEntity>
 
     suspend fun getPost(id: Int): PostEntity
+
+    suspend fun createPost(post: PostEntity)
 }

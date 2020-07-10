@@ -12,7 +12,7 @@ interface PostsService {
     suspend fun getPost(@Path("id") postId: Int): PostResponse
 
     @POST("posts")
-    suspend fun createPost(@Body post: PostResponse)
+    suspend fun createPost(@Body post: PostResponse): PostResponse
 
     @DELETE("posts/{id}")
     suspend fun deletePost(@Path("id") postId: Int)

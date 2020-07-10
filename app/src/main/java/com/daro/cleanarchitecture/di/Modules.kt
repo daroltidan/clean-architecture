@@ -1,12 +1,14 @@
 package com.daro.cleanarchitecture.di
 
 import androidx.lifecycle.SavedStateHandle
+import com.daro.cleanarchitecture.posts.add.AddViewModel
 import com.daro.cleanarchitecture.posts.details.DetailsFragmentArgs
 import com.daro.cleanarchitecture.posts.details.PostDetailsViewModel
 import com.daro.cleanarchitecture.posts.entities.PostsViewModelMapper
 import com.daro.cleanarchitecture.posts.list.PostsViewModel
 import com.daro.data.error.ErrorHandlerImpl
 import com.daro.data.repositories.PostsRepositoryImpl
+import com.daro.domain.usecases.CreatePost
 import com.daro.domain.usecases.GetPosts
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -17,6 +19,11 @@ val domainModule = module {
     factory {
         val repository: PostsRepositoryImpl = get()
         GetPosts(repository)
+    }
+
+    factory {
+        val repository: PostsRepositoryImpl = get()
+        CreatePost(repository)
     }
 }
 
@@ -42,5 +49,11 @@ val presentationModule = module {
         val getPosts: GetPosts = get()
         val mapper: PostsViewModelMapper = get()
         PostDetailsViewModel(getPosts, mapper, navArgs)
+    }
+
+    viewModel {
+        val createPosts: CreatePost = get()
+        val errorHandler: ErrorHandlerImpl = get()
+        AddViewModel(createPosts, errorHandler)
     }
 }
