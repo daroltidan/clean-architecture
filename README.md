@@ -8,6 +8,7 @@ I've used:
 * [koin](https://insert-koin.io/)
 * [data binding](https://developer.android.com/topic/libraries/data-binding)
 * [view binding](https://developer.android.com/topic/libraries/view-binding)
+* [coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
 
 # clean architecture # 
 ![alt text](https://github.com/daroltidan/clean-architecture/blob/master/1_dtL10Oo6gUKZU6GEt85Few.png)
